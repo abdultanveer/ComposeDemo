@@ -31,35 +31,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.yourcompany.android.jetpackcompose.router
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+package com.yourcompany.android.jetpackcompose.screens
 
-/**
- * Class defining the screens we have in the app.
- *
- * These objects should match files we have in the screens package
- */
-sealed class Screen {
-  object Navigation : Screen()
-  object Text : Screen()
-  object TextField : Screen()
-  object Buttons : Screen()
-  object ProgressIndicator : Screen()
-  object AlertDialog : Screen()
-  object BoxScreen : Screen()
-  object ColumnScreen : Screen()
-  object RowScreen : Screen()
-  object ScaffoldScreen : Screen()
-  object SurfaceScreen : Screen()
+import androidx.compose.runtime.Composable
+import com.example.composedemo.R
 
+import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
+import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
+import com.yourcompany.android.jetpackcompose.router.Screen
+
+val THREE_ELEMENT_LIST = listOf(R.string.first, R.string.second, R.string.third)
+
+@Composable
+fun RowScreen() {
+  MyRow()
+
+  BackButtonHandler {
+    JetFundamentalsRouter.navigateTo(Screen.Navigation)
+  }
 }
 
-object JetFundamentalsRouter {
-  var currentScreen: MutableState<Screen> = mutableStateOf(Screen.Navigation)
-
-  fun navigateTo(destination: Screen) {
-    currentScreen.value = destination
-  }
+@Composable
+fun MyRow() {
+  //TODO write your code here
 }

@@ -31,35 +31,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.yourcompany.android.jetpackcompose.router
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+package com.yourcompany.android.jetpackcompose.screens
 
-/**
- * Class defining the screens we have in the app.
- *
- * These objects should match files we have in the screens package
- */
-sealed class Screen {
-  object Navigation : Screen()
-  object Text : Screen()
-  object TextField : Screen()
-  object Buttons : Screen()
-  object ProgressIndicator : Screen()
-  object AlertDialog : Screen()
-  object BoxScreen : Screen()
-  object ColumnScreen : Screen()
-  object RowScreen : Screen()
-  object ScaffoldScreen : Screen()
-  object SurfaceScreen : Screen()
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
+import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
+import com.yourcompany.android.jetpackcompose.router.Screen
 
+@Composable
+fun SurfaceScreen(modifier: Modifier = Modifier) {
+
+  Box(modifier = modifier.fillMaxSize()) {
+    MySurface(modifier = modifier.align(Alignment.Center))
+  }
+
+  BackButtonHandler {
+    JetFundamentalsRouter.navigateTo(Screen.Navigation)
+  }
 }
 
-object JetFundamentalsRouter {
-  var currentScreen: MutableState<Screen> = mutableStateOf(Screen.Navigation)
-
-  fun navigateTo(destination: Screen) {
-    currentScreen.value = destination
-  }
+@Composable
+fun MySurface(modifier: Modifier) {
+  //TODO write your code here
 }

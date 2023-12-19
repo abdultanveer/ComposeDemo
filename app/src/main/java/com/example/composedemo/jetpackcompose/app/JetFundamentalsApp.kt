@@ -54,6 +54,12 @@ fun JetFundamentalsApp() {
         is Screen.Buttons -> ExploreButtonsScreen()
         is Screen.ProgressIndicator -> ProgressIndicatorScreen()
         is Screen.AlertDialog -> AlertDialogScreen()
+
+        is Screen.BoxScreen -> BoxScreen()
+        is Screen.ColumnScreen -> ColumnScreen()
+        is Screen.RowScreen -> RowScreen()
+        is Screen.ScaffoldScreen -> ScaffoldScreen()
+        is Screen.SurfaceScreen -> SurfaceScreen()
       }
     }
   }

@@ -67,6 +67,12 @@ fun NavigationScreen() {
         NavigationButton(text = "text progress indicator", screen = Screen.ProgressIndicator)
         NavigationButton(text = "text Alert dialog", screen = Screen.AlertDialog)
 
+        NavigationButton(text = "Row screen", screen = Screen.RowScreen)
+        NavigationButton(text = "Column screen", screen = Screen.ColumnScreen)
+        NavigationButton(text = "Box screeen", screen = Screen.BoxScreen)
+        NavigationButton(text = "Scaffold screen", screen = Screen.ScaffoldScreen)
+        NavigationButton(text = "Surface screen", screen = Screen.SurfaceScreen)
+
         //NavigationButton(stringResource(id = R.string.text), Screen.Text)
       /*NavigationButton(stringResource(id = R.string.text_field), Screen.TextField)
       NavigationButton(stringResource(id = R.string.buttons), Screen.Buttons)

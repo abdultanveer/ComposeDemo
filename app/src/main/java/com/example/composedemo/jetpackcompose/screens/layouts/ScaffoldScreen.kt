@@ -31,35 +31,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.yourcompany.android.jetpackcompose.router
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+package com.yourcompany.android.jetpackcompose.screens
 
-/**
- * Class defining the screens we have in the app.
- *
- * These objects should match files we have in the screens package
- */
-sealed class Screen {
-  object Navigation : Screen()
-  object Text : Screen()
-  object TextField : Screen()
-  object Buttons : Screen()
-  object ProgressIndicator : Screen()
-  object AlertDialog : Screen()
-  object BoxScreen : Screen()
-  object ColumnScreen : Screen()
-  object RowScreen : Screen()
-  object ScaffoldScreen : Screen()
-  object SurfaceScreen : Screen()
+import androidx.compose.runtime.Composable
+import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
+import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
+import com.yourcompany.android.jetpackcompose.router.Screen
 
-}
+@Composable
+fun ScaffoldScreen() {
+  MyScaffold()
 
-object JetFundamentalsRouter {
-  var currentScreen: MutableState<Screen> = mutableStateOf(Screen.Navigation)
-
-  fun navigateTo(destination: Screen) {
-    currentScreen.value = destination
+  BackButtonHandler {
+    JetFundamentalsRouter.navigateTo(Screen.Navigation)
   }
 }
+
+@Composable
+fun MyScaffold() {
+  //TODO write your code here
+}
+
+@Composable
+fun MyTopAppBar() {
+  //TODO write your code here
+}
+
+@Composable
+fun MyBottomAppBar() {
+  //TODO write your code here
+}
+

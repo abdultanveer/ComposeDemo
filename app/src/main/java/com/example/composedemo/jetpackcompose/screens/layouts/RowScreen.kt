@@ -34,6 +34,8 @@
 
 package com.yourcompany.android.jetpackcompose.screens
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,7 +43,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composedemo.R
 
@@ -66,11 +70,12 @@ fun MyRow() {
 
   Row(
      verticalAlignment = Alignment.CenterVertically,
-      horizontalArrangement = Arrangement.SpaceEvenly,
+      horizontalArrangement = Arrangement.SpaceAround,
       modifier = Modifier.fillMaxSize()
   ) {
       THREE_ELEMENT_LIST.forEach {textId ->
-        Text(text = stringResource(id = textId), fontSize = 18.sp)
+        Text(text = stringResource(id = textId), fontSize = 18.sp,
+            modifier = Modifier.weight(1/3f).border(border = BorderStroke(width = 1.dp, color = Color.Black)),)
       }
   }
 }

@@ -40,10 +40,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -85,12 +90,30 @@ fun MyButton() {
 @Preview
 @Composable
 fun MyBtnPreview(){
-    MyButton()
+    Column {
+        MyButton()
+        MyRadioGroup()
+    }
+
 }
 
 @Composable
 fun MyRadioGroup() {
-  //TODO add your code here
+  val radioBtns = listOf(0,1,2)
+    val selectedBtn = remember { mutableStateOf(radioBtns.first()) }
+    Column {
+        radioBtns.forEach { index ->
+            val isSelected = index == selectedBtn.value
+            val colors = RadioButtonDefaults.colors(
+                selectedColor =  colorResource(id = R.color.teal_700),
+                unselectedColor = colorResource(id = R.color.purple_200),
+                disabledSelectedColor = Color.LightGray
+            )
+            RadioButton(selected = isSelected,
+                onClick = { selectedBtn.value = index },
+                colors = colors)
+        }
+    }
 }
 
 @Composable

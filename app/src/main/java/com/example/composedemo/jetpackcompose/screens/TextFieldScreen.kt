@@ -38,7 +38,11 @@ package com.yourcompany.android.jetpackcompose.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
@@ -60,7 +64,13 @@ fun TextFieldScreen() {
   }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTextField() {
-  //TODO add your code here
+    val textVal =  remember { mutableStateOf("") }
+
+  TextField(value = textVal.value ,
+      onValueChange = {textVal.value = it },
+      label = {}
+  )
 }

@@ -27,7 +27,7 @@ fun TextScreen() {
       horizontalAlignment = Alignment.CenterHorizontally,
       verticalArrangement = Arrangement.Center
   ) {
-    MyText()
+    MyText("welcome")
   }
 
   BackButtonHandler {
@@ -36,8 +36,8 @@ fun TextScreen() {
 }
 
 @Composable
-fun MyText() {
-    Text(text = stringResource(id = R.string.jetpack_compose),
+fun MyText(name:String) {
+    Text(text = name,
         fontStyle = FontStyle.Italic,
         color = colorResource(id = R.color.purple_700),
         fontSize = 30.sp,
@@ -47,19 +47,12 @@ fun MyText() {
 @Preview
 @Composable
 fun MyTextPreview() {
-    Text(text = stringResource(id = R.string.jetpack_compose),
-        fontStyle = FontStyle.Italic,
-        color = colorResource(id = R.color.purple_700),
-        fontSize = 30.sp,
-        fontWeight = FontWeight.Bold)
+    MyText(name = "abdul")
 }
 
 @Preview
 @Composable
 fun OtherPreview() {
-    Text(text = stringResource(id = R.string.jetpack_compose),
-        fontStyle = FontStyle.Italic,
-        color = colorResource(id = R.color.purple_700),
-        fontSize = 30.sp,
-        fontWeight = FontWeight.Thin)
+    MyText(name = "Motorola")
+
 }

@@ -61,12 +61,12 @@ fun NavigationScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        NavigationButton(text = "text screen", screen = Screen.Text)
+       /* NavigationButton(text = "text screen", screen = Screen.Text)
         NavigationButton(text = "text field", screen = Screen.TextField)
         NavigationButton(text = "text buttons", screen = Screen.Buttons)
         NavigationButton(text = "text progress indicator", screen = Screen.ProgressIndicator)
         NavigationButton(text = "text Alert dialog", screen = Screen.AlertDialog)
-
+*/
         NavigationButton(text = "Row screen", screen = Screen.RowScreen)
         NavigationButton(text = "Column screen", screen = Screen.ColumnScreen)
         NavigationButton(text = "Box screeen", screen = Screen.BoxScreen)

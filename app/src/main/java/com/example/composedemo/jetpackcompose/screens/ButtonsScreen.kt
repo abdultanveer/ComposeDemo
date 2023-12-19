@@ -34,12 +34,21 @@
 
 package com.yourcompany.android.jetpackcompose.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.composedemo.R
 import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
 import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
 import com.yourcompany.android.jetpackcompose.router.Screen
@@ -62,7 +71,21 @@ fun ExploreButtonsScreen() {
 
 @Composable
 fun MyButton() {
-  //TODO add your code here
+    Button(onClick = {  },
+        colors = ButtonDefaults.buttonColors(
+            containerColor = colorResource(id = R.color.purple_200)
+        ),
+        border = BorderStroke(1.dp, color = colorResource(id = R.color.purple_700))
+    ) {
+        Text(text = stringResource(id = R.string.button_text),
+            color = colorResource(id = R.color.teal_700))
+    }
+}
+
+@Preview
+@Composable
+fun MyBtnPreview(){
+    MyButton()
 }
 
 @Composable

@@ -50,6 +50,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -112,6 +113,10 @@ fun ScaffoldExample() {
           containerColor = MaterialTheme.colorScheme.primaryContainer,
           titleContentColor = MaterialTheme.colorScheme.primary,
         ),*/
+        colors = TopAppBarDefaults.smallTopAppBarColors(
+          containerColor = MaterialTheme.colorScheme.primaryContainer,
+          titleContentColor = MaterialTheme.colorScheme.primary,
+        ),
         title = {
           Text("Top app bar")
         }

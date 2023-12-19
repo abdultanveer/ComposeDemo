@@ -34,12 +34,17 @@
 
 package com.yourcompany.android.jetpackcompose.screens
 
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
@@ -93,6 +98,7 @@ fun MyBtnPreview(){
     Column {
         MyButton()
         MyRadioGroup()
+        MyFloatingActionButton()
     }
 
 }
@@ -118,5 +124,12 @@ fun MyRadioGroup() {
 
 @Composable
 fun MyFloatingActionButton() {
-  //TODO add your code here
-}
+    FloatingActionButton(onClick = {},
+        containerColor = colorResource(id = R.color.purple_200),
+        contentColor = Color.White,
+        content = { androidx.compose.material3.Icon(imageVector = Icons.Filled.Favorite, contentDescription = "test fab")
+         }
+        )
+        
+    }
+

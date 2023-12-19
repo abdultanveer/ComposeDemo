@@ -34,7 +34,15 @@
 
 package com.yourcompany.android.jetpackcompose.screens
 
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.example.composedemo.R
 import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
 import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
 import com.yourcompany.android.jetpackcompose.router.Screen
@@ -52,5 +60,24 @@ fun AlertDialogScreen() {
 
 @Composable
 fun MyAlertDialog() {
-  //TODO add your code here
+  val shouldShowDialog = remember { mutableStateOf(true) }
+
+  if (shouldShowDialog.value){
+    AlertDialog(
+      onDismissRequest = {
+        shouldShowDialog.value = false
+        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+      },
+      confirmButton = {
+        Button(onClick = {
+          shouldShowDialog.value = false
+          JetFundamentalsRouter.navigateTo(Screen.Navigation)
+        }) {
+            Text(text = stringResource(id = R.string.confirm), color = Color.White)
+        }
+      },
+      title = { Text(text = stringResource(id = R.string.alert_dialog_text)) },
+
+      )
+  }
 }

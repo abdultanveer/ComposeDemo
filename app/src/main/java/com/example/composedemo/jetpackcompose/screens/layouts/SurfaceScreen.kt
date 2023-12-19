@@ -69,6 +69,6 @@ fun MySurface(modifier: Modifier) {
     contentColor = colorResource(id = R.color.purple_700),
     shadowElevation = 10.dp, border = BorderStroke(1.dp,Color.Black)
   ) {
-
+    MyColumn()
   }
 }

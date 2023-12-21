@@ -60,6 +60,11 @@ fun JetFundamentalsApp() {
         is Screen.RowScreen -> RowScreen()
         is Screen.ScaffoldScreen -> ScaffoldScreen()
         is Screen.SurfaceScreen -> SurfaceScreen()
+
+        is Screen.GridScreen -> GridScreen()
+      // is Screen.ListsScreen -> Lists
+        is Screen.ScrollingScreen -> ScrollingScreen()
+
       }
     }
   }

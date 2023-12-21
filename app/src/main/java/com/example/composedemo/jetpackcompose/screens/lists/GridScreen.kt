@@ -31,39 +31,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.yourcompany.android.jetpackcompose.router
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+package com.yourcompany.android.jetpackcompose.screens
 
-/**
- * Class defining the screens we have in the app.
- *
- * These objects should match files we have in the screens package
- */
-sealed class Screen {
-  object Navigation : Screen()
-  object Text : Screen()
-  object TextField : Screen()
-  object Buttons : Screen()
-  object ProgressIndicator : Screen()
-  object AlertDialog : Screen()
-  object BoxScreen : Screen()
-  object ColumnScreen : Screen()
-  object RowScreen : Screen()
-  object ScaffoldScreen : Screen()
-  object SurfaceScreen : Screen()
-  object GridScreen : Screen()
- // object ListsScreen: Screen()
-  object ScrollingScreen : Screen()
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.ThumbUp
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
+import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
+import com.yourcompany.android.jetpackcompose.router.Screen
 
+private val items = listOf(
+    Icons.Filled.Check,
+    Icons.Filled.Close,
+    Icons.Filled.ThumbUp,
+    Icons.Filled.Build,
+    Icons.Filled.Delete,
+    Icons.Filled.Home,
+    Icons.Filled.Close,
+    Icons.Filled.ThumbUp,
+    Icons.Filled.Build,
+    Icons.Filled.ThumbUp,
+)
 
+@Composable
+fun GridScreen() {
+    //TODO add your code here
+
+    BackButtonHandler {
+        JetFundamentalsRouter.navigateTo(Screen.Navigation)
+    }
 }
 
-object JetFundamentalsRouter {
-  var currentScreen: MutableState<Screen> = mutableStateOf(Screen.Navigation)
-
-  fun navigateTo(destination: Screen) {
-    currentScreen.value = destination
-  }
+@Composable
+fun GridIcon(iconResource: ImageVector) {
+    //TODO add your code here
 }

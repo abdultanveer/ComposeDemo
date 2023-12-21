@@ -31,39 +31,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.yourcompany.android.jetpackcompose.router
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+package com.yourcompany.android.jetpackcompose.screens
 
-/**
- * Class defining the screens we have in the app.
- *
- * These objects should match files we have in the screens package
- */
-sealed class Screen {
-  object Navigation : Screen()
-  object Text : Screen()
-  object TextField : Screen()
-  object Buttons : Screen()
-  object ProgressIndicator : Screen()
-  object AlertDialog : Screen()
-  object BoxScreen : Screen()
-  object ColumnScreen : Screen()
-  object RowScreen : Screen()
-  object ScaffoldScreen : Screen()
-  object SurfaceScreen : Screen()
-  object GridScreen : Screen()
- // object ListsScreen: Screen()
-  object ScrollingScreen : Screen()
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.yourcompany.android.jetpackcompose.router.BackButtonHandler
+import com.yourcompany.android.jetpackcompose.router.JetFundamentalsRouter
+import com.yourcompany.android.jetpackcompose.router.Screen
 
+@Composable
+fun ScrollingScreen() {
+  MyScrollingScreen()
 
+  BackButtonHandler {
+    JetFundamentalsRouter.navigateTo(Screen.Navigation)
+  }
 }
 
-object JetFundamentalsRouter {
-  var currentScreen: MutableState<Screen> = mutableStateOf(Screen.Navigation)
+@Composable
+fun MyScrollingScreen() {
+  //TODO add your code here
+}
 
-  fun navigateTo(destination: Screen) {
-    currentScreen.value = destination
-  }
+@Composable
+fun BookImage(@DrawableRes imageResId: Int, @StringRes contentDescriptionResId: Int) {
+  Image(
+    bitmap = ImageBitmap.imageResource(imageResId),
+    contentDescription = stringResource(contentDescriptionResId),
+    contentScale = ContentScale.FillBounds,
+    modifier = Modifier.size(476.dp, 616.dp)
+  )
 }

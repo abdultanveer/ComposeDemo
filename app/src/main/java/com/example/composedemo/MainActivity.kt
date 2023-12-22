@@ -36,6 +36,7 @@ package com.example.composedemo
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -46,6 +47,12 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import com.example.composedemo.R
+import com.example.composedemo.effects.MyComposable
+import com.example.composedemo.effects.RunTimerScreen
+import com.example.composedemo.effects.TimerScreen
+import com.example.composedemo.jetpackcompose.components.ExampleViewModel
+import com.example.composedemo.jetpackcompose.components.SearchBar
+import com.example.composedemo.jetpackcompose.components.SearchView
 import com.yourcompany.android.jetpackcompose.app.JetFundamentalsApp
 
 class MainActivity : ComponentActivity() {
@@ -56,29 +63,13 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
+     // SearchBar()
+     // SearchView(exampleViewModel = ExampleViewModel())
      // JetFundamentalsApp()
-      Counter()
+    // Counter()
+    //  MyComposable()
+     // TimerScreen()
+      RunTimerScreen()
     }
-  }
-}
-
-@Composable
-fun Counter() {
-  // Define a state variable for the count
-  val count = remember { mutableStateOf(0) }
-
-  // Use SideEffect to log the current value of count
-  SideEffect {
-    // Called on every recomposition
-    Log.i("Counter","Count is ${count.value}")
-  }
-
-  Column {
-    Button(onClick = { count.value++ }) {
-      Text("Increase Count")
-    }
-
-    // With every state update, text is changed and recomposition is triggered
-    Text("Counter ${count.value}")
   }
 }
